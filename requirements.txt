@@ -1,8 +1,9 @@
-fastapi
-uvicorn
+gradio
 torch
 transformers
 pillow
-python-multipart
 numpy
+fastapi
+uvicorn
+python-multipart
 jinja2
