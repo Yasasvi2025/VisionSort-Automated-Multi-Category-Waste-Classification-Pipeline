@@ -120,7 +120,7 @@ pip install fastapi uvicorn torch transformers pillow python-multipart numpy jin
 ### 1. Clone the Codebase Repository
 
 ```bash
-git clone [https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME.git](https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME.git)
+git clone https://github.com/Yasasvi2025/VisionSort-Automated-Multi-Category-Waste-Classification-Pipeline.git
 
 ```
 
