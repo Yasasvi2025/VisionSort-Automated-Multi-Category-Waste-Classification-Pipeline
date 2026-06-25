@@ -24,7 +24,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Initialize deep learning zero-shot classification engine
+# 1. THE BACKEND ENGINE: Initialize deep learning zero-shot AI classification model
 try:
     print("Loading Semantic Vision Model (CLIP)...")
     MODEL_ID = "openai/clip-vit-base-patch32"
@@ -36,7 +36,7 @@ except Exception as e:
     clip_model = None
     clip_processor = None
 
-# DEFINITIVE 10-CLASS WASTE SEGREGATION INDEX
+# DEFINITIVE 10-CLASS WASTE SEGREGATION INDEX MATRIX
 WASTE_CLASSES = {
     0: {"category": "Plastic", "display_name": "Polymer Recyclables / PET / HDPE", "prompt": "a photo of plastic waste, plastic bottle, or polymer recycling"},
     1: {"category": "Metal", "display_name": "Ferrous & Non-Ferrous Scrap Metal", "prompt": "a photo of scrap metal, aluminum soda cans, or metallic waste"},
@@ -50,6 +50,7 @@ WASTE_CLASSES = {
     9: {"category": "Mixed Waste", "display_name": "Residual Contaminated Refuse", "prompt": "a photo of unsorted trash, landfill garbage, or mixed contaminated refuse"}
 }
 
+# THE INTERACTION BRIDGE: The API endpoint where backend receives data from the frontend web page
 @app.post("/api/analyze")
 async def analyze_waste(file: UploadFile = File(...)):
     if not clip_model or not clip_processor:
@@ -98,6 +99,7 @@ async def analyze_waste(file: UploadFile = File(...)):
         raise HTTPException(status_code=500, detail=f"Internal Pipeline Crash: {str(e)}")
 
 
+# 2. THE FRONTEND INTERFACE: The user dashboard web page
 @app.get("/", response_class=HTMLResponse)
 async def home_dashboard():
     return """
@@ -154,6 +156,7 @@ async def home_dashboard():
             formData.append("file", fileInput.files[0]);
 
             try {
+                // Notice the relative URL "/api/analyze" - it talks natively to its own backend server!
                 const response = await fetch("/api/analyze", {
                     method: "POST",
                     body: formData
