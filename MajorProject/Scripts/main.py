@@ -12,7 +12,8 @@ from fastapi.responses import HTMLResponse
 from PIL import Image
 from transformers import CLIPProcessor, CLIPModel
 
-app = FastAPI(title="VisionSort: 10-Class Contamination Control System")
+# 1. UPDATED CORE SYSTEM TITLE DEFINITION
+app = FastAPI(title="VisionSort: Automated Multi-Category Waste Classification Pipeline")
 
 # Configure CORS cross-origin allowances
 app.add_middleware(
@@ -105,11 +106,11 @@ async def home_dashboard():
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>VisionSort UI Control Center</title>
+        <title>VisionSort: Automated Multi-Category Waste Classification Pipeline</title>
         <style>
             body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #0b0c10; color: #e5e7eb; padding: 40px; margin: 0; }
             .container { max-width: 850px; margin: auto; background: #1f2833; padding: 35px; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.7); border: 1px solid #45f3ff33; }
-            h1 { color: #66fcf1; border-bottom: 2px solid #1f2833; padding-bottom: 12px; margin-top: 0; font-size: 26px; text-transform: uppercase; letter-spacing: 1px; }
+            h1 { color: #66fcf1; border-bottom: 2px solid #1f2833; padding-bottom: 12px; margin-top: 0; font-size: 20px; text-transform: uppercase; letter-spacing: 1px; line-height: 1.3; }
             .upload-box { border: 2px dashed #66fcf1; padding: 40px; text-align: center; border-radius: 8px; background: #0b0c10; margin-bottom: 25px; }
             input[type="file"] { margin: 0 auto 15px auto; display: block; color: #c5a1ff; font-size: 14px; }
             button { background-color: #66fcf1; color: #0b0c10; border: none; padding: 14px 28px; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; width: 100%; transition: 0.2s; box-shadow: 0 4px 15px rgba(102,252,241,0.3); }
@@ -123,7 +124,7 @@ async def home_dashboard():
     </head>
     <body>
         <div class="container">
-            <h1>VisionSort UI Control Center</h1>
+            <h1>VisionSort: Automated Multi-Category Waste Classification Pipeline</h1>
             <p style="color: #c5a1ff; margin-top: -10px; font-weight: 500;">Multi-Stream Industrial Sorting Core — 10 Target Matrix Arrays</p>
             
             <div class="upload-box">
